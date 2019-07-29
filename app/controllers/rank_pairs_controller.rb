@@ -1,0 +1,2 @@
+class RankPairsController < ApplicationController
+end

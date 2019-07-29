@@ -1,0 +1,2 @@
+module RankPairsHelper
+end
