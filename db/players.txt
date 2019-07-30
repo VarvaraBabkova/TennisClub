@@ -1,0 +1,7 @@
+		Team A	Team B	Team C	Team D	Team E	Team F	
+1	Jeremy Gundling	Larry Wilson	Clay Murray	Kurt Zeller	Doug Johnson	Francis Tongol	
+2	Yi Su	Ruben Flores	Subra Sankaran	Hung Nguyen	Steve Berberich	Mark Caldwell	
+3	Ashok Moza	Chris Sapp	John Quinlan	Alfonso Contreras	Randy DiValerio	Bob Martin	
+4	John McBride	David Purdum	Martin Walsh	Mike Baird	Steve Munday	Don Dolittle	
+5	Don Hebert	Terry Tyler	Joe Khandheria	Kirit Patel	Srini Kamana	David Good	
+6	Earl Zachry	Oscar Trevino	Jeff Neale	Alex Rodriguez	Terry Houvouras	Don Bane

@@ -1,7 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  rank: MyString
+  rank: 1
 
 two:
-  rank: MyString
+  rank: 1

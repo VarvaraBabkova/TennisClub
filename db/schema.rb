@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_29_182643) do
+ActiveRecord::Schema.define(version: 2019_07_29_192018) do
 
   create_table "courts", force: :cascade do |t|
     t.string "name"
@@ -21,7 +21,6 @@ ActiveRecord::Schema.define(version: 2019_07_29_182643) do
 
   create_table "games", force: :cascade do |t|
     t.integer "court_id"
-    t.integer "result_id"
     t.datetime "datetime"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -30,16 +29,24 @@ ActiveRecord::Schema.define(version: 2019_07_29_182643) do
   create_table "participations", force: :cascade do |t|
     t.integer "player_id"
     t.integer "game_id"
+    t.integer "score"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "players", force: :cascade do |t|
     t.integer "team_id"
+    t.integer "rank_id"
     t.string "first_name"
     t.string "last_name"
     t.string "email"
     t.string "phone_number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "ranks", force: :cascade do |t|
+    t.integer "rank"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
