@@ -1,5 +1,6 @@
 require_relative "seed_players"
 require_relative "seed_games"
+require_relative "seed_results"
 
 
 
@@ -34,8 +35,9 @@ require_relative "seed_games"
 		Player.create(p)
 	end
 
-
 	seed_games
+	seed_results
+
 
 
 
