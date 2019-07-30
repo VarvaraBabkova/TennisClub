@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2019_07_29_192018) do
   end
 
   create_table "games", force: :cascade do |t|
+    t.integer "week_num"
     t.integer "court_id"
     t.datetime "datetime"
     t.datetime "created_at", null: false

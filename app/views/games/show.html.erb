@@ -1,5 +1,6 @@
 <div class="jumbotron">
-	<h1>Court: <%= @game.court.name %><br>
+	<h1>Week: <%=@game.week_num%> <br>
+		Court: <%= @game.court.name %><br>
 	    Date: <%= @game.datetime.strftime("%F") %><br>
 	    Teams: <%= @teams[0] + " vs " + @teams[1]%>
 	</h1>
@@ -8,7 +9,13 @@
     <h1>Players:</h1>
 
 	<% @players.each do |p| %>
-		<%= link_to p.first_name + " " + p.last_name + " team " + p.team.team, player_path(p) %><br/>
+		<%= link_to p.first_name + " " + p.last_name + " team " + p.team.team, player_path(p) %>
+		<%if p.score(@game.id)%>
+			Score: <%= p.score(@game.id)%>
+		<%else%>
+			Not played yet
+		<%end%>
+		<br/>
 	<% end %>
 </p>
     
