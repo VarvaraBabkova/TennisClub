@@ -10,7 +10,11 @@
 
 	<% @players.each do |p| %>
 		<%= link_to p.first_name + " " + p.last_name + " team " + p.team.team, player_path(p) %>
-		Score: <%= p.score(@game.id)%>
+		<%if p.score(@game.id)%>
+			Score: <%= p.score(@game.id)%>
+		<%else%>
+			Not played yet
+		<%end%>
 		<br/>
 	<% end %>
 </p>
