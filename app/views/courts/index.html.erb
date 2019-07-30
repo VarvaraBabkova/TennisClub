@@ -1,0 +1,7 @@
+<h1>Courts:</h1>
+
+<% @courts.each do |c| %>
+<%= link_to c.name, court_path(c) %><br/>
+<% end %>
+
+<%= link_to "New Court", new_court_path %>

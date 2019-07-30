@@ -1,0 +1,7 @@
+<h1>Players:</h1>
+
+<% @players.each do |p| %>
+<%= link_to p.first_name, player_path(p) %><br/>
+<% end %>
+
+<%= link_to "New Player", new_player_path %>

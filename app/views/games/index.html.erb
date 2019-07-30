@@ -1,0 +1,7 @@
+<h1>Games:</h1>
+
+<% @games.each do |g| %>
+<%= link_to g.court_id, game_path(g) %><br/>
+<% end %>
+
+<%= link_to "New Games", new_game_path %>
