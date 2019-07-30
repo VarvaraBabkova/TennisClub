@@ -6,7 +6,7 @@ class PlayersController < ApplicationController
     end
 
     def show
-        @participation = @player.participations
+        @participations = @player.participations
     end
 
     private
