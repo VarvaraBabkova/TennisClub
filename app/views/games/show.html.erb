@@ -1,8 +1,17 @@
+<div class="jumbotron">
+	<h1>Court: <%= @game.court.name %><br>
+	    Date: <%= @game.datetime.strftime("%F") %><br>
+	    Teams: <%= @teams[0] + " vs " + @teams[1]%>
+	</h1>
+</div>
 <p>
-    Court Id: <%= @game.court_id %><br>
-    Date: <%= @game.datetime %><br>
+    <h1>Players:</h1>
+
+	<% @players.each do |p| %>
+		<%= link_to p.first_name + " " + p.last_name + " team " + p.team.team, player_path(p) %><br/>
+	<% end %>
 </p>
     
-<%# <%= link_to @participation.first_name, participation_path(@participation) %> 
+	<%=button_to "Back to the list of games", games_path, {method: "get"}%>
 
-<%= link_to "Edit", edit_game_path %>
+<%= button_to "Edit", edit_game_path %>

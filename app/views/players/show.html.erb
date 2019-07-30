@@ -1,10 +1,20 @@
-<p>
-    Name: <%= @player.first_name %><br>
+
+<div class="jumbotron">
+<h1> Player: <%= @player.first_name + " " + @player.last_name%><br></h1>
+<h3>
+   
     Email: <%= @player.email %><br>
     Phone Number: <%= @player.phone_number %><br>
-    Team ID: <%= @player.team_id %><br>
+    Team : <%= @player.team.team%><br>
 
-</p>
-    
-<%# <%= link_to @participation.first_name, participation_path(@participation) %> %>
-<%= link_to "Edit", edit_player_path %>
+</h3>
+</div>
+    <h3>Games:</h3>
+    <%@participations.each do |p|%>
+		<%= link_to p.game.datetime.strftime("%F") + " at " + p.game.court.name, game_path(p.game) %> <br>
+	<%end%>
+
+	<br><br>
+
+	<%=button_to "Back to the list of players", players_path, {method: "get"}%>
+<%= button_to "Edit", edit_player_path, {method: "get"} %>
