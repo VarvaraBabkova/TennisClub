@@ -6,10 +6,16 @@ class GamesController < ApplicationController
     end
 
     def show
+        @players = @game.players
+        @teams = @game.get_teams
     end
+
+    
 
     private
     def current_game
         @game = Game.find(params[:id])
     end
+
+    
 end
