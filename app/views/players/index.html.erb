@@ -1,7 +1,32 @@
 <h1>Players:</h1>
 
-<% @players.each do |p| %>
-<%= link_to p.first_name + " " + p.last_name, player_path(p) %><br/>
-<% end %>
-<br><br>
-<%=button_to "New Player", new_player_path%>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Team Id</th>
+      <th scope="col">Rank ID</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Email Address</th>
+      <th scope="col">Phone Number</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @players.each do |p| %>
+        <tr>
+            <td><%= p.team_id%></td>
+            <td><%= p.rank_id%></td>
+            <td><%= link_to p.first_name, player_path(p)%></td>
+            <td><%= link_to p.last_name, player_path(p)%></td>
+            <td><%= p.email%></td>
+            <td><%= p.phone_number%></td>
+        </tr>
+    <%end%>
+    </tbody>
+</table>
+
+<%# <%= link_to p.first_name + " " + p.last_name, player_path(p) %><br/> %>
+<%# <% end %> %>
+<%# <br><br> %>
+<%=button_to "New Player", new_player_path %>
