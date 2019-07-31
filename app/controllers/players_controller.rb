@@ -7,6 +7,7 @@ class PlayersController < ApplicationController
 
     def show
         @participations = @player.participations
+        @img_name = @player.first_name + " " + @player.last_name + ".jpg"
     end
 
     private

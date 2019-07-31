@@ -1,6 +1,6 @@
 <h1>Players:</h1>
 
-<% @players.each do |p| %>
+<% @players.order(:first_name).each do |p| %>
 <%= link_to p.first_name + " " + p.last_name, player_path(p) %><br/>
 <% end %>
 <br><br>
