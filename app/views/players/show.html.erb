@@ -12,7 +12,7 @@
 
     Phone Number: <%= @player.phone_number %><br>
     Email: <%= @player.email %><br><br>
-    Team : <%= @player.team.team%><br>
+    Team : <%= link_to @player.team.team, team_path(@player.team)%><br>
     Rank : <%= @player.rank.rank%><br>
 
 

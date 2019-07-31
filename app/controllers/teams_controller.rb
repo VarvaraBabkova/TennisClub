@@ -14,6 +14,7 @@ class TeamsController < ApplicationController
     def show        
         @team_games = @team.games
         @team_players = @team.players
+        @courts = Court.all
     end
     
     private
