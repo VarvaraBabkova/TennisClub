@@ -3,6 +3,7 @@ class GamesController < ApplicationController
     before_action :current_game, only: [:show]
     def index
         @games = Game.all
+        @courts = Court.all
     end
 
     def show

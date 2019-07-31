@@ -1,13 +1,14 @@
 <div class="jumbotron">
 	<br>
-	<h1>Week: <%=@game.week_num%> <br>
+	<h1>Game summary: </h1>
+		<h3> Week: <%=@game.week_num%> <br>
 	    Date: <%= @game.datetime.strftime("%F") %><br> <br>
 	    <%if @game.get_winner_team%>
 	    	Team <%=@game.get_winner_team%> won
 	    <%end%>
 	    <h3> Teams: <%= @teams[0] + " vs " + @teams[1]%>		<br></h3>
 
-	</h1>
+	</h3>
 </div>
 <p>
     <h1>Players:</h1>
@@ -22,6 +23,7 @@
 		<br/>
 	<% end %>
 </p>
+<br><br>
 <h3>		Court: <%= @game.court.name %><br>
 </h3>
     
