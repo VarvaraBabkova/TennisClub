@@ -3,10 +3,34 @@
 <h1>Games:</h1>
 </div>
 
+<div id="calendar"></div>
 
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Week Num</th>
+      <th scope="col">Court ID</th>
+      <th scope="col">Date</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @games.each do |p| %>
+        <tr>
+            <td><%= p.week_num%></td>
+            <td><%= p.court_id%></td>
+            <td><%= p.datetime%></td>
+        </tr>
+    <%end%>
+    </tbody>
+</table>
+
+
+<%# 
     <%@games.each do |g|%>
-		<%= link_to "Week: " + g.week_num.to_s +  " " + g.datetime.strftime("%F") + " at " + g.court.name + " " + g.get_teams[0] + " vs " + g.get_teams[1], game_path(g) %> <br>
-	<%end%>
+		<%# <%= link_to "Week: " + g.week_num.to_s +  " " + g.datetime.strftime("%F") + " at " + g.court.name + " " + g.get_teams[0] + " vs " + g.get_teams[1], game_path(g) %> <br> %>
+	<%# <%end%> %> %>
 
 <br><br>
 <%= button_to "New Game", new_game_path %>
