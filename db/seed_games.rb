@@ -1,7 +1,6 @@
 require 'date'
 
 def participants_from_string (str)
-	puts str
 	players = []
 	pair1 =  str.delete(".").split("vs")[0].strip
 	pair2 =  str.delete(".").split("vs")[1].strip
@@ -55,7 +54,7 @@ def seed_games
 "9	8/6/2019	6:45 PM	2,4 B vs. 2,4 F	2,4 A vs. 2,4 D	5,6 B vs. 5,6 F	5,6 A vs. 5,6 D	1,3 B vs. 1,3 F	1,3 A vs. 1,3 D
 8:00 PM	2,4 C vs. 2,4 E		5,6 C vs. 5,6 E		1,3 C vs. 1,3 E	"]
 	lines.each do |line|
-		puts line
+		# puts line
 		seed_week(line)
 	end
 end
@@ -63,9 +62,10 @@ end
 def seed_week (line)
 
 	players = []
-	
+	week = line[0].to_i
+
 	line1 =  line.split("\n")[0].split("\t")
-	puts line1
+	# puts line1
 	date = line1[1].split("/")
 	time = line1[2].split(/[: ]/)
 	dt1 =  DateTime.new(date[2].to_i, date[0].to_i, date[1].to_i, 
@@ -74,7 +74,7 @@ def seed_week (line)
 	for i in 3..8 do
 		code = line1[i]
 		court = get_court_id(i - 2)
-		game = Game.create(court_id: court, datetime: dt1)
+		game = Game.create(court_id: court, datetime: dt1, week_num: week)
 		players = participants_from_string(code)
 		players.each do |p|
 			Participation.create(player_id: p.id, game_id: game.id)
@@ -83,7 +83,7 @@ def seed_week (line)
 
 
 	line2 =  line.split("\n")[1].split("\t")
-	puts line2	
+	# puts line2	
 	time = line2[0].split(/[: ]/)
 	dt2 =  DateTime.new(date[2].to_i, date[0].to_i, date[1].to_i, 
 		time[0].to_i + (time[2] == "PM" ? 12 : 0), time[1].to_i)
@@ -92,7 +92,7 @@ def seed_week (line)
 		code = line2[i - 1]
 		court = get_court_id(i - 1)
 		if code != "" && code
-			game = Game.create(court_id: court, datetime: dt2)
+			game = Game.create(court_id: court, datetime: dt2, week_num: week)
 			players = participants_from_string(code)
 			players.each do |p|
 				Participation.create(player_id: p.id, game_id: game.id)

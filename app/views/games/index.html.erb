@@ -5,7 +5,7 @@
 
 
     <%@games.each do |g|%>
-		<%= link_to g.datetime.strftime("%F") + " at " + g.court.name + " " + g.get_teams[0] + " vs " + g.get_teams[1], game_path(g) %> <br>
+		<%= link_to "Week: " + g.week_num.to_s +  " " + g.datetime.strftime("%F") + " at " + g.court.name + " " + g.get_teams[0] + " vs " + g.get_teams[1], game_path(g) %> <br>
 	<%end%>
 
 <br><br>
