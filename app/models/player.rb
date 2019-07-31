@@ -17,6 +17,8 @@ class Player < ApplicationRecord
      def self.rank_players(rank)
         rank_id = Rank.find_by(rank: rank)
         return Player.where(rank_id: rank_id) 
-    end
+	end
+	
+	
 
 end

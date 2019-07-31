@@ -1,37 +1,47 @@
 <h1>Players:</h1>
-
-<table class="table">
+<head>
+  <title>Players</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th scope="col">Team Id</th>
-      <th scope="col">Rank ID</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Email Address</th>
-      <th scope="col">Phone Number</th>
-      <th colspan="2"></th>
+      <th scope="col"></th>
+
+      <th scope="col">Name</th>
+
+      <th scope="col">Team</th>
+      <th scope="col">Rank</th>
+       <th colspan="2"></th>
     </tr>
   </thead>
   <tbody>
     <% @players.each do |p| %>
         <tr>
-            <td><%= p.team_id%></td>
-            <td><%= p.rank_id%></td>
-            <td><%= link_to p.first_name, player_path(p)%></td>
-            <td><%= link_to p.last_name, player_path(p)%></td>
-            <td><%= p.email%></td>
-            <td><%= p.phone_number%></td>
+            <td>
+              <%@img_name = p.first_name + " " + p.last_name + ".jpg"%>
+              <%if File.file?("#{Rails.root}/app/assets/images/#{@img_name}")%>
+                   <%= image_tag(@img_name, :alt => "pic", height: '30', width: '40') %> 
+                 <%else%>
+                    <%= image_tag("user-default-grey.png", :alt => "no pic", size: "30") %> 
+                <%end%>
+                
+              </td>
+            <td><%= link_to p.first_name + " " + p.last_name, player_path(p) %></td>    
+
+            <td><%= p.team.team%></td>
+            <td><%= p.rank.rank%></td>           
         </tr>
     <%end%>
     </tbody>
 </table>
 
-<%# <%= link_to p.first_name + " " + p.last_name, player_path(p) %><br/> %>
-<%# <% end %> %>
-<%# <br><br> %>
+<br>
 
-<% @players.order(:first_name).each do |p| %>
-<%= link_to p.first_name + " " + p.last_name, player_path(p) %><br/>
-<% end %>
-<br><br>
-<%=button_to "New Player", new_player_path%>
+
+<%#=button_to "New Player", new_player_path%>

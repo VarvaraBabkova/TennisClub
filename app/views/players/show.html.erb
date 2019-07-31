@@ -20,10 +20,10 @@
 </div>
     <h3>Games:</h3>
     <%@participations.each do |p|%>
-		<%= link_to p.game.datetime.strftime("%F") + " at " + p.game.court.name, game_path(p.game) %> <br>
+		<%= link_to "Week " + p.game.week_num.to_s + " " + p.game.datetime.strftime("%F") + " at " + p.game.court.name, game_path(p.game) %> <br>
 	<%end%>
 
 	<br><br>
 
-	<%=button_to "Back to the list of players", players_path, {method: "get"}%>
-<%= button_to "Edit", edit_player_path, {method: "get"} %>
+	<%#=button_to "Back to the list of players", players_path, {method: "get"}%>
+<%#= button_to "Edit", edit_player_path, {method: "get"} %>

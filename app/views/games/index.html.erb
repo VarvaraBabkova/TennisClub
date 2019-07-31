@@ -1,5 +1,6 @@
 
 <div class="jumbotron">
+	<br>
 <h1>Games:</h1>
 </div>
 
@@ -26,6 +27,19 @@
     </tbody>
 </table>
 
+<!-- Two columns: 50% width on large and up-->
+<div class="row">
+  <div class="col-lg">1 of 2</div>
+  <div class="col-lg">2 of 2</div>
+</div>
+
+<!-- Four columns: 25% width on large and up -->
+<div class="row">
+  <div class="col-lg">1 of 4</div>
+  <div class="col-lg">2 of 4</div>
+  <div class="col-lg">3 of 4</div>
+  <div class="col-lg">4 of 4</div>
+</div>
 
 <%# 
     <%@games.each do |g|%>
@@ -33,4 +47,4 @@
 	<%# <%end%> %> %>
 
 <br><br>
-<%= button_to "New Game", new_game_path %>
+<%#= button_to "New Game", new_game_path %>
