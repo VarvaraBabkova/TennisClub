@@ -1,5 +1,5 @@
 <div class="jumbotron">
-
+<br>
 	<h1>Teams:</h1>
 
 </div>
@@ -11,7 +11,7 @@
 			<td></td>
 
 			<% @teams.each do |t| %>
-				<th><%= link_to t.team, team_path(t) %></th>	
+				<th><%= link_to "Team " + t.team, team_path(t) %></th>	
 			<% end %>
 		</tr>
 	</thead>
