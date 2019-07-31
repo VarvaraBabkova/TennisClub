@@ -2,10 +2,11 @@
 	<br>
 	<h1>Week: <%=@game.week_num%> <br>
 	    Date: <%= @game.datetime.strftime("%F") %><br> <br>
-	    Teams: <%= @teams[0] + " vs " + @teams[1]%>		<br>
 	    <%if @game.get_winner_team%>
 	    	Team <%=@game.get_winner_team%> won
 	    <%end%>
+	    <h3> Teams: <%= @teams[0] + " vs " + @teams[1]%>		<br></h3>
+
 	</h1>
 </div>
 <p>

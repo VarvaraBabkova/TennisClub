@@ -13,6 +13,11 @@ class Team < ApplicationRecord
 		@games.sort {|a, b| a.week_num <=> b.week_num}
 	end
 
+	def week_games(week)
+		wg = games.select {|g| g.week_num == week}
+		wg.sort {|a, b| a.court_id <=> b.court_id}
+	end
+
 	def game_score(game)
 		return game.get_winner_score if self.team == game.get_winner_team
 		return game.get_loser_score if self.team == game.get_loser_team
