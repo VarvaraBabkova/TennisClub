@@ -19,10 +19,15 @@
 </h3>
 </div>
     <h3>Games:</h3>
-    <%@participations.each do |p|%>
-		<%= link_to "Week " + p.game.week_num.to_s + " " + p.game.datetime.strftime("%F") + " at " + p.game.court.name, game_path(p.game) %> <br>
-	<%end%>
-
+    <table class="table table-striped table-bordered">
+        <%@participations.each do |p|%>
+    		<td> 
+                <%= link_to "Week " + p.game.week_num.to_s + " " + p.game.datetime.strftime("%F"), game_path(p.game) %> 
+                <br>
+                <%=p.game.court.name%>
+            </td>
+    	<%end%>
+    </table>
 	<br><br>
 
 	<%#=button_to "Back to the list of players", players_path, {method: "get"}%>

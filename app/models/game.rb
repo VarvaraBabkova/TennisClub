@@ -39,4 +39,9 @@ class Game < ApplicationRecord
     	self.participations.first.score
     end
 
+    def self.week_games(week)
+        wg = Game.select {|g| g.week_num == week}
+        wg.sort {|a, b| a.court_id <=> b.court_id}
+    end
+
 end

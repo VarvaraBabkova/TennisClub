@@ -1,37 +1,40 @@
 
 <div class="jumbotron">
-	<br>
+	<br> <br>
 <h1>Games:</h1>
 </div>
 
-<div id="calendar"></div>
 
+  <table class="table table-striped table-bordered table-hover">
 
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th scope="col">Week Num</th>
-      <th scope="col">Court ID</th>
-      <th scope="col">Date</th>
-      <th colspan="2"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @games.each do |p| %>
-        <tr>
-            <td><%= p.week_num%></td>
-            <td><%= p.court_id%></td>
-            <td><%= p.datetime%></td>
-        </tr>
+    <thead>
+      <tr class="text-center">
+        <th></th>
+        <th colspan="3"><%=@courts[0].name%><br><%=@courts[0].address%></th>
+        <th colspan="3"><%=@courts[1].name%><br><%=@courts[0].address%></th>
+        <th colspan="3"><%=@courts[2].name%><br><%=@courts[0].address%></th>
+      </tr>
+    </thead>
+    <%for i in 1..9 do %>
+      <tr>
+        <td>Week <%=i%></td>
+        <%Game.week_games(i).each do |g|%>
+          <td>
+            <%#= link_to g.datetime.strftime("%F"), game_path(g) %> 
+            <%= link_to  g.get_teams[0] + " vs " + g.get_teams[1], game_path(g) %> 
+            <br>
+            <%if g.played? %>
+              <%= g.get_winner_team + " won" %>
+            <%else%>
+              <%= "not played yet" %>
+
+            <%end%> 
+          </td>
+        <%end%>
+      </tr>
     <%end%>
-    </tbody>
-</table>
+
+  </table>
+    
 
 
-<%# 
-    <%@games.each do |g|%>
-		<%# <%= link_to "Week: " + g.week_num.to_s +  " " + g.datetime.strftime("%F") + " at " + g.court.name + " " + g.get_teams[0] + " vs " + g.get_teams[1], game_path(g) %> <br> %>
-	<%# <%end%> %> %>
-
-<br><br>
-<%#= button_to "New Game", new_game_path %>
