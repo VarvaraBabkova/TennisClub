@@ -2,10 +2,19 @@
 <div class="jumbotron">
 <h1> Player: <%= @player.first_name + " " + @player.last_name%><br></h1>
 <h3>
-   
-    Email: <%= @player.email %><br>
+    
+    <%if File.file?("#{Rails.root}/app/assets/images/#{@img_name}")%>
+        <%= image_tag(@img_name, :alt => "pic", height: '150', width: '200') %> <br>
+    <%else%>
+        <%= image_tag("user-default-grey.png", :alt => "no pic", size: "150") %> <br>
+        <%#byebug%>
+    <%end%>
+
     Phone Number: <%= @player.phone_number %><br>
+    Email: <%= @player.email %><br><br>
     Team : <%= @player.team.team%><br>
+    Rank : <%= @player.rank.rank%><br>
+
 
 </h3>
 </div>
