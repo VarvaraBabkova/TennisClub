@@ -6,6 +6,7 @@ gem 'bootstrap', '~> 4.0.0'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
 gem 'rails-ujs', '~> 0.1.0'
 gem 'friendly_id', '~> 5.2.4' 
+gem 'scrollspy-rails'
 
 
 
