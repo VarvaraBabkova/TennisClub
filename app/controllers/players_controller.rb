@@ -10,6 +10,8 @@ class PlayersController < ApplicationController
         @img_name = @player.first_name + " " + @player.last_name + ".jpg"
     end
 
+    
+
     private
     def current_player
         @player = Player.find(params[:id])
