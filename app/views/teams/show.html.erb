@@ -1,8 +1,27 @@
-<p>
-    Name: <%= @team.team %><br>
 
-</p>
-    
-<%# <%= link_to @participation.first_name, participation_path(@participation) %> %>
+<div class="jumbotron">
+	<br>
+	<h1>
+    	Team: <%= @team.team %><br>
+	</h1> 
+</div>
 
-<%= link_to "Edit", edit_team_path %>
+<h3>Team Players:</h3>
+	<%@team_players.each do |p|%>
+		<%= link_to  p.first_name + " " + p.last_name, player_path(p) %>  rank <%=p.rank.rank%><br>
+	<%end%>
+
+<h3>Games:</h3>
+    <%@team_games.each do |g|%>
+		<%= link_to "week " + g.week_num.to_s + " " + g.datetime.strftime("%F") + " at " + g.court.name, game_path(g) %> 
+		
+		<br>
+	<%end%>
+
+	<br><br>
+
+
+
+
+
+
