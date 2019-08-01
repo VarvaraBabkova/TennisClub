@@ -30,7 +30,23 @@
   -webkit-backface-visibility: visible;
   backface-visibility: visible;
 }
+
+.carousel-inner > .item > img, .carousel-inner > .item > a > img {
+  display: block;
+  height: auto;
+  line-height: 1;
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+html body {
+  background-color: rgba(220,220,220);
+
+}
 /*--- Fixed Background Image --*/
+
+
+
 figure {
   position: relative;
   width: 100%;
