@@ -1,32 +1,58 @@
 <div class="jumbotron">
 	<br>
 	<h1>Game summary: </h1>
-		<h3> Week: <%=@game.week_num%> <br>
-	    Date: <%= @game.datetime.strftime("%F") %><br> <br>
+		<h5> Week: <%=@game.week_num%> <br>
+	    Date: <%= @game.datetime.strftime("%F") %>
+	    	    <br> <br>
+
+		</h5>
+		<h3>
 	    <%if @game.get_winner_team%>
+
 	    	Team <%=@game.get_winner_team%> won
+	    	<h3>Scores: <%= @teams[0].game_score(@game).to_s + " : " + @teams[1].game_score(@game).to_s%></h3>
+
 	    <%end%>
-	    <h3> Teams: <%= @teams[0] + " vs " + @teams[1]%>		<br></h3>
+	    <%if !@game.get_winner_team && session[:userID]%>
+	    <h5>
+	    	<%=form_for @game do |f|%>
+	    		Change the date: <%=f.date_select :datetime%>
+	    		<%=button_to 'Save changes', {action: "update"}, {method: "patch"} %>
+            <%end%>
+	    </h5>
+	    <%end%>
+	    <h3> Teams: <%= @teams[0].team + " vs " + @teams[1].team%>		<br></h3>
 
 	</h3>
 </div>
 <p>
     <h1>Players:</h1>
 
+<table class="table table-striped table-hover">
+
 	<% @players.each do |p| %>
-		<%= link_to p.first_name + " " + p.last_name + " team " + p.team.team, player_path(p) %>
+	<tr>
+		<td>
+		<%= link_to p.first_name + " " + p.last_name , player_path(p)%>
+		</td>
+		<td>
+			<%= link_to " team " + p.team.team, team_path(p.team) %>
+		</td>
+		<td>
 		<%if p.score(@game.id)%>
 			Score: <%= p.score(@game.id)%>
 		<%else%>
 			Not played yet
 		<%end%>
-		<br/>
+		</td>
+	</tr>
 	<% end %>
+
+</table>
 </p>
-<br><br>
+<br>
 <h3>		Court: <%= @game.court.name %><br>
 </h3>
     
-	<%#=button_to "Back to the list of games", games_path, {method: "get"}%>
 
 <%#= button_to "Edit", edit_game_path %>
