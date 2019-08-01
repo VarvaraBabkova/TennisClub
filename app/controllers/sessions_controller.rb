@@ -7,8 +7,11 @@ class SessionsController < ApplicationController
     def login
     	
         if !session[:userID] 
-        	# byebug
-        	session[:userID] = "admin"
+        	if params[:password] == "12345"
+        	   session[:userID] = "admin"
+            else
+                session.delete :userID
+            end
         end
         # byebug
         # render :file => "c:/path/to/some/template.erb"

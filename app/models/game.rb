@@ -7,7 +7,7 @@ class Game < ApplicationRecord
 	def get_teams
         teams = []
         players = self.players
-        players.each {|p| teams  << p.team.team}
+        players.each {|p| teams  << p.team}
         teams.uniq!
     end
 

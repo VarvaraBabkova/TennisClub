@@ -21,7 +21,7 @@
         <%Game.week_games(i).each do |g|%>
           <td>
             <%#= link_to g.datetime.strftime("%F"), game_path(g) %> 
-            <%= link_to  g.get_teams[0] + " vs " + g.get_teams[1], game_path(g) %> 
+            <%= link_to  g.get_teams[0].team + " vs " + g.get_teams[1].team, game_path(g) %> 
             <br>
             <%if g.played? %>
               <%= g.get_winner_team + " won" %>
